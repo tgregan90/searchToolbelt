@@ -2,27 +2,14 @@ var toolBelt = toolBelt || {};
 
 toolBelt.bookmarks = toolBelt.bookmarks || {};
 
-// 0. Cache current tab
+//Build a global variable for the current tab Obj
 
 toolBelt.bookmarks.tabNode = chrome.tabs;
 
-
-// 1. Build open new tab and visit given URL method
-
-toolBelt.bookmarks.openTab = function(builtURL){
-    toolBelt.bookmarks.tabNode.create({
-        url: builtURL
-    });
-}
-
-// 2. Build URL builder method
-
-toolBelt.bookmarks.urlBuilder = function(beg,targetPage,end){
-    var builtURL = beg + encodeURI(targetPage) + end;
-    return builtURL;
-}
-
-toolBelt.bookmarks.getCurrentTab = function(){
+//Build a global variable for the current tab Obj
+toolBelt.bookmarks.currentTabURL = "";
+toolBelt.bookmarks.getCurrentTab = function()
+{
     chrome.tabs.query({
         'active': true,
         'currentWindow': true
@@ -30,14 +17,60 @@ toolBelt.bookmarks.getCurrentTab = function(){
         toolBelt.bookmarks.currentTabURL = tabs[0].url;
     });
 }
+toolBelt.bookmarks.getCurrentTab();
+//Build a global variable for the current tab Obj
 
-// 3. Add event listeners to links
-document.getElementById("PSIScore").addEventListener(
-    "click",
-    function(){
-        toolBelt.bookmarks.getCurrentTab();
-        var url =  toolBelt.bookmarks.currentTabURL;
-        var PSIURL = toolBelt.bookmarks.urlBuilder("https://developers.google.com/speed/pagespeed/insights/?url=",url);
-        toolBelt.bookmarks.openTab(PSIURL);
+//Utility Functions
+    toolBelt.bookmarks.openTab = function(builtURL){
+        toolBelt.bookmarks.tabNode.create({
+            url: builtURL
+        });
     }
-)
+
+    // 2. Build URL builder method
+
+    toolBelt.bookmarks.urlBuilder = function(beg = "",targetPage = "",end = ""){
+        var builtURL = beg + encodeURI(targetPage).toString() + end;
+        return builtURL;
+    }
+
+//Utility Functions
+
+
+
+// Add event listeners to buttons
+
+    document.getElementById("PSIScoreMP").addEventListener(
+        "click",
+        function(){
+            var PSIURL = toolBelt.bookmarks.urlBuilder("https://developers.google.com/speed/pagespeed/insights/?url=",toolBelt.bookmarks.currentTabURL,"&tab=mobile");
+            toolBelt.bookmarks.openTab(PSIURL);
+        }
+    )
+    document.getElementById("PSIScoreDT").addEventListener(
+        "click",
+        function(){
+            var PSIURL = toolBelt.bookmarks.urlBuilder("https://developers.google.com/speed/pagespeed/insights/?url=",toolBelt.bookmarks.currentTabURL,"&tab=desktop");
+            toolBelt.bookmarks.openTab(PSIURL);
+        }
+    )
+    document.getElementById("MFriendlyLink").addEventListener(
+        "click",
+        function(){
+            var PSIURL = toolBelt.bookmarks.urlBuilder("https://search.google.com/test/mobile-friendly?url=",toolBelt.bookmarks.currentTabURL);
+            toolBelt.bookmarks.openTab(PSIURL);
+        }
+    )
+
+
+    
+    document.getElementById("SDataTestingTool").addEventListener(
+        "click",
+        function(){
+            var PSIURL = toolBelt.bookmarks.urlBuilder("https://search.google.com/structured-data/testing-tool/u/0/#url=",toolBelt.bookmarks.currentTabURL);
+            toolBelt.bookmarks.openTab(PSIURL);
+        }
+    )
+
+
+// Add event listeners to buttons
