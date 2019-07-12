@@ -1,0 +1,70 @@
+Features list
+
+	• Favicon logo
+		○ Change logo to provide feedback
+			§ E.g. redirect path
+	• Patroen link
+	• Feedly top reads
+
+Tools
+	• On page
+		○ Server response
+			§ Header status
+			§ Caching info
+				□ Etag
+				□ Cache date
+			§ HSTS
+			§ Different origin domains being linked to
+			§ Server push
+		○ URL
+			§ Is the domain non SSL?
+				□ Is it consolidated
+			§ Return origin
+			§ Return sub domain
+			§ Return path without parameters and hashes
+			§ Return parameters and hashes
+		○ Head
+			§ Title 
+			§ description
+			§ Keywords
+			§ Meta robots tag / X Robots header response
+			§ Canonical tag / X Robots header
+			§ Contains resource hinting
+		○ Body
+			§ Images
+				□ Count of images
+				□ Count By type
+				□ Display alt text
+			§ Document outline
+				□ Outline headings
+			§ Links
+				□ Highlight nofollow links
+				□ Display link details
+            § Browser performance timings
+	• Bookmarks
+		○ Page speed insights
+		○ Mobile friendliness
+		○ Disavow file
+		○ Semrush
+			§ Domain
+			§ Sub domain
+			§ URL
+			§ Path
+		○ Majestic
+		○ Ahrefs
+		○ Builtwith.com
+	• Tools
+		○ Pagespeed score
+		○ Mobile friendliness tool
+		○ Serp number highlighter
+		○ Scrape results
+			§ Paid
+			§ Organic
+			§ Scrape and submit to majestic
+			§ Scrape and submit to URL checking tool??
+			§ Scrape with titles and descriptions
+		○ Expose GMB categories
+		○ What's on the dataLayer
+		
+		
+		

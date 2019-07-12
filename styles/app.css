@@ -66,7 +66,7 @@ h2{
   font-weight: bold; 
 }
 
-.resultsBox{
+#resultsPanel{
   clear: both;
   padding: 10px;
   margin: 20px;
